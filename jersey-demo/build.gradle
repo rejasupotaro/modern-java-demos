@@ -1,6 +1,9 @@
 apply plugin: 'war'
 apply plugin: 'jetty'
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 repositories {
     mavenCentral()
 }
@@ -11,9 +14,6 @@ dependencies {
     compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.4'
     testCompile 'org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2:2.4'
 }
-
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
 
 jettyRun {
     reload = "automatic"

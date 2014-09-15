@@ -3,6 +3,9 @@ apply plugin: 'war'
 apply plugin: 'jetty'
 apply plugin: 'idea'
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 repositories {
   mavenCentral()
 }
@@ -12,6 +15,3 @@ dependencies {
   providedCompile 'javax.servlet:servlet-api:2.5'
   runtime 'javax.servlet:jstl:1.1.2'
 }
-
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
