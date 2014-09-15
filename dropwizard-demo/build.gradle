@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'gradle-one-jar'
+apply plugin: 'idea'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath 'com.github.rholder:gradle-one-jar:1.0.3'
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'io.dropwizard:dropwizard-core:0.7.1'
+}
+
+mainClassName = 'com.example.dropwizard.App'
+
+task oneJar(type: OneJar) {
+  mainClass = mainClassName
+}
+
+run {
+  args 'server', 'example.yml'
+}
+
+artifacts {
+  oneJar
+}
