@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'idea'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'com.sparkjava:spark-core:2.0.0'
+  providedCompile 'javax.servlet:servlet-api:2.5'
+  runtime 'javax.servlet:jstl:1.1.2'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
