@@ -9,7 +9,7 @@ public class AppConfiguration extends Configuration {
     private String template;
 
     @NotEmpty
-    private String defaultName = "Stranger";
+    private String defaultName = "Guest";
 
     @JsonProperty
     public String getTemplate() {

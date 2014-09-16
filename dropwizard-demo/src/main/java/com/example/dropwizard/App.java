@@ -16,12 +16,12 @@ public class App extends Application<AppConfiguration> {
 
     @Override
     public void run(AppConfiguration configuration, Environment environment) throws Exception {
+        final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
+        environment.healthChecks().register("template", healthCheck);
+
         final UserResource resource = new UserResource(
                 configuration.getTemplate(),
                 configuration.getDefaultName());
-        environment.jersey().register(resource);
-        final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
-        environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(resource);
     }
 }
