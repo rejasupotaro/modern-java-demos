@@ -9,12 +9,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+
 @Path("/users")
 public class UsersController extends ApplicationController {
     @GET
     @Path("{id}")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(APPLICATION_JSON)
     public Response show(@PathParam("id") String id) {
-        return Response.ok(UserResource.DUMMY_USER.toJson()).build();
+        String entity = UserResource.DUMMY_USER.toJson();
+        return Response.ok(entity).build();
     }
 }

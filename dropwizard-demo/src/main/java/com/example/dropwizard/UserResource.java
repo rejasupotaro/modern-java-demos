@@ -28,7 +28,7 @@ public class UserResource {
     @GET
     @Timed(name = "get-requests")
     @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
-    public UserRepresentation sayHello(@QueryParam("name") Optional<String> name) {
+    public UserRepresentation show(@QueryParam("name") Optional<String> name) {
         final String value = String.format(template, name.or(defaultName));
         return new UserRepresentation(counter.incrementAndGet(), value);
     }
